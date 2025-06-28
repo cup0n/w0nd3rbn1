@@ -1,0 +1,14 @@
+<!DOCTYPE html>  <html lang="id">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>Wondr BNI</title>  
+  <link rel="stylesheet" href="Style1.css">   
+</head>  
+<div class="promo-container">  
+  <img src="yot.webp" alt="Promo Wondr" class="promo-img">  
+  <a href="Index.html" class="btn-kupon">Ambil Kupon</a>  
+</div>  
+</div>  
+<body>  
+</html>
