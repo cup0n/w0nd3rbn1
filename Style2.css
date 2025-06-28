@@ -1,0 +1,91 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6ecf0;
+  color: #000;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-bottom: 4px solid #003b6f;
+}
+
+.logo img {
+  height: 36px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #003b6f;
+}
+
+.lang-inactive {
+  color: #999;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Hero Image Section */
+.hero {
+  background-color: #ff7f00;
+  padding: 30px 0 20px;
+  text-align: center;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 40px;
+}
+
+/* Main content grows to fill space */
+main {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.message-box {
+  background-color: #00688b;
+  color: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer stays at the bottom */
+.footer {
+  background-color: #00688b;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+}
