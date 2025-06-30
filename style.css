@@ -1,0 +1,12 @@
+/* Gambar latar belakang */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+
+  background-image: url('dun.jpg'); /* GANTI sesuai nama file kamu */
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  min-height: 90vh;
+}

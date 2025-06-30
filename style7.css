@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #a3d4ff;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.otp-container {
+  padding: 30px 20px 120px;
+  text-align: center;
+}
+
+.logo-img {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.otp-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.otp-subtitle {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.otp-inputs input {
+  width: 40px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+  background-color: white;
+  color: #333;
+}
+
+.button-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  padding: 10px 1px;
+  text-align: center;
+}
+
+.btn {
+  width: 90%;
+  max-width: 400px;
+  background-color: white;
+  color: #007AFF;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Gambar latar belakang */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+
+  background-image: url('kur.jpg'); /* GANTI sesuai nama file kamu */
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  min-height: 90vh;
+}

